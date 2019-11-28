@@ -1,0 +1,130 @@
+// app global css in SCSS form
+
+@import 'node_modules/quasar/dist/quasar.sass';
+
+body.body--light {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: bottom;    
+    background-color: $primary;
+    background-image: url('/statics/blonde.jpg');
+    
+}
+
+  
+body.body--dark {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: bottom;    
+    background-color: $primary;
+    background-image: url('/statics/wanderer.jpg'), 
+                radial-gradient(farthest-side ellipse at 10% 0,$body-bg-gradient-start, $body-bg-gradient-end);
+}
+
+.body--light {
+    .main-header, .main-footer {
+        @extend .text-primary;
+        @extend .bg-secondary;
+    }
+    .active-page {
+        color: $primary;
+    }
+    .page-pannel {
+
+    }
+    .full-page-pannel {
+        background-color: rgba($primary, 0.1);
+    }
+    .calendar-month {
+        .calendar-content {
+            .calendar-day-weekend {
+                background-color: rgba($secondary, 0.7) !important;
+            }
+            .calendar-day-current {
+                background-color: rgba($primary, 0.3) !important;
+            }
+        }
+    }
+    .stat-box {
+        .stat-count {
+            @extend .text-accent;
+        }
+        .stat-text {
+            @extend .text-primary;
+        }
+        .q-avatar {
+            background-color: $accent;
+            color: white;
+            font-weight: bold;
+        }
+    }
+}
+
+.body--dark {
+    .main-header, .main-footer {
+        @extend .text-white;
+        @extend .bg-black;
+    }
+    .active-page {
+        color: $secondary;
+    }
+    .page-pannel {
+    
+    }
+    .full-page-pannel {
+        background-color: rgba(black, 0.5);
+    }
+    .calendar-month {
+        .calendar-content {
+            .calendar-day-weekend {
+                background-color: rgba(black, 0.3) !important;
+            }
+            .calendar-day-current {
+                background-color: rgba($secondary, 0.3) !important;
+            }
+        }
+    }
+    .stat-box {
+        .stat-count {
+            @extend .text-white;
+        }
+        .stat-text {
+            @extend .text-secondary;
+        }
+        .q-avatar {
+            background-color: $primary;
+            color: white;
+            font-weight: bold;
+        }
+    }
+    .q-linear-progress__model--determinate {
+        background-color: $secondary !important;
+    }
+}
+
+.full-page-pannel {
+    height: calc(100vh - 200px); 
+    width: 100%;
+    padding: .3rem;
+    border-radius: .3rem;
+}
+
+.page-pannel {
+    width: 100%;
+    padding: .5rem;
+}
+
+.active-page {
+    font-size: 120%;
+    font-weight: bold;
+}
+
+
+
+#leftPanel {
+    aside {
+        background-color: transparent;
+    }
+}
