@@ -21,6 +21,7 @@ function filterByTimelineStatus (state, status) {
     edition => getTimelineStatus(edition) === status
   )
 }
+
 export function ready (state) {
   return state.conferences && Object.values(state.conferences).length !== 0 &&
     state.editions && Object.values(state.editions).length !== 0 &&
@@ -28,8 +29,23 @@ export function ready (state) {
     state.cfps && Object.values(state.cfps).length !== 0
 }
 
-export function allConferences (state) {
-  return state.conferences
+export function filteredConferences (state) {
+  let result = Object.values(state.conferences)
+  if (state.nameFilter) {
+    let regExp = new RegExp(state.nameFilter, 'i')
+    result = result.filter(c => regExp.test(c.name))
+  }
+  if (state.countryFilter) {
+    result = result.filter(c => {
+      return c.location && state.cities[c.location].country === state.countryFilter
+    })
+  }
+  if (state.familyFilter) {
+    result = result.filter(c => {
+      return c.family === state.familyFilter
+    })
+  }
+  return result
 }
 
 export function conferencesCount (state) {
@@ -38,6 +54,22 @@ export function conferencesCount (state) {
 
 export function allCities (state) {
   return state.cities
+}
+
+export function allCountries (state) {
+  return [...new Set(
+    Object.values(state.conferences)
+      .filter(conference => conference.location)
+      .map(conference => state.cities[conference.location].country)
+  )].sort()
+}
+
+export function allFamilies (state) {
+  return [...new Set(
+    Object.values(state.conferences)
+      .filter(conference => conference.family)
+      .map(conference => conference.family)
+  )].sort()
 }
 
 export function allEditions (state) {
@@ -153,7 +185,7 @@ export function citiesCount (state) {
 
 export function cityConferences (state) {
   if (!ready(state)) return {}
-  return Object.values(state.conferences).reduce(
+  return filteredConferences(state).reduce(
     (acc, conference) => {
       if (conference.location) {
         acc[conference.location] = {
@@ -246,4 +278,16 @@ export function conferenceByName (state) {
 
 export function editionByName (state) {
   return name => state.editions[name]
+}
+
+export function getNameFilter (state) {
+  return state.nameFilter
+}
+
+export function getCountryFilter (state) {
+  return state.countryFilter
+}
+
+export function getFamilyFilter (state) {
+  return state.familyFilter
 }

@@ -1,5 +1,6 @@
 <template>
   <q-page padding>
+    <ConferenceFilter />
     <div class="row justify-center q-gutter-none"
     >
       <div
@@ -20,15 +21,16 @@
 
 <script>
 
+import ConferenceFilter from 'components/ConferenceFilter'
 import ConferenceCard from 'components/ConferenceCard'
 import { mapGetters } from 'vuex'
 
 export default {
   name: 'Conferences',
-  components: { ConferenceCard },
+  components: { ConferenceCard, ConferenceFilter },
   computed: {
     ...mapGetters({
-      conferences: 'conferencesStore/allConferences'
+      conferences: 'conferencesStore/filteredConferences'
     })
   }
 }

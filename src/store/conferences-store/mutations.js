@@ -13,3 +13,15 @@ export function updateEditions (state, editions) {
 export function updateCFPs (state, cfps) {
   state.cfps = cfps
 }
+
+export function setNameFilter (state, nameFilter) {
+  state.nameFilter = nameFilter
+}
+
+export function setCountryFilter (state, countryFilter) {
+  state.countryFilter = countryFilter
+}
+
+export function setFamilyFilter (state, familyFilter) {
+  state.familyFilter = familyFilter
+}

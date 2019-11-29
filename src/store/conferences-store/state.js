@@ -2,5 +2,8 @@ export default {
   conferences: {},
   editions: [],
   cfps: [],
-  cities: []
+  cities: [],
+  nameFilter: '',
+  countryFilter: '',
+  familyFilter: ''
 }

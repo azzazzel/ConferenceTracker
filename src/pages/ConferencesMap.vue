@@ -1,39 +1,41 @@
 <template>
   <q-page padding>
-      <div class="full-page-pannel">
-        <l-map
-          style="height: 100%; width: 100%"
-          :zoom="zoom"
-          :center="center"
+    <ConferenceFilter />
+    <div class="full-page-pannel">
+      <l-map
+        style="height: 95%; width: 100%"
+        :zoom="zoom"
+        :center="center"
+        >
+        <l-tile-layer
+          :url="url"
+          :attribution="attribution"
+          :opacity="opacity"></l-tile-layer>
+        <l-marker
+          v-for="city in cityConferences"
+          :key="city.location"
+          :icon="icon"
+          :lat-lng="city['lat-lng']"
           >
-          <l-tile-layer
-            :url="url"
-            :attribution="attribution"
-            :opacity="opacity"></l-tile-layer>
-          <l-marker
-            v-for="city in cityConferences"
-            :key="city.location"
-            :icon="icon"
-            :lat-lng="city['lat-lng']"
-            >
-            <l-popup>
-              <q-chip
-                v-for="event in city.events"
-                :key="event"
-                class="full-width"
-                >
-                <q-avatar icon="bookmark" color="primary" text-color="white" />
-                {{event}}
-              </q-chip>
-            </l-popup>
-          </l-marker>
-        </l-map>
-      </div>
+          <l-popup>
+            <q-chip
+              v-for="event in city.events"
+              :key="event"
+              class="full-width"
+              >
+              <q-avatar icon="bookmark" color="primary" text-color="white" />
+              {{event}}
+            </q-chip>
+          </l-popup>
+        </l-marker>
+      </l-map>
+    </div>
   </q-page>
 </template>
 
 <script>
 
+import ConferenceFilter from 'components/ConferenceFilter'
 import { mapGetters } from 'vuex'
 import { LMap, LTileLayer, LMarker, LPopup } from 'vue2-leaflet'
 import { latLng, icon } from 'leaflet'
@@ -41,6 +43,7 @@ import { latLng, icon } from 'leaflet'
 export default {
   name: 'ConferencesMap',
   components: {
+    ConferenceFilter,
     LMap,
     LTileLayer,
     LMarker,
@@ -63,8 +66,6 @@ export default {
   },
   computed: {
     ...mapGetters({
-      cities: 'conferencesStore/allCities',
-      conferences: 'conferencesStore/allConferences',
       cityConferences: 'conferencesStore/cityConferences'
     }),
     url: function () {
