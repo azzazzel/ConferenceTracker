@@ -87,6 +87,7 @@
           active-class="active-page"
           target="_blank"
           tag="a"
+          :class="darkMode ? 'text-accent' : 'text-warning'"
           href='https://docs.google.com/spreadsheets/d/1UEXmLwp8qEvvwBjiNQGSAB07QFSPVgD-10ieljAnevg/edit#gid=0'
         >
           <q-item-section avatar>
@@ -100,6 +101,7 @@
           active-class="active-page"
           target="_blank"
           tag="a"
+          :class="darkMode ? 'text-accent' : 'text-warning'"
           href='https://forms.gle/vFcWJKWtqD7NrxmZ8'
         >
           <q-item-section avatar>
