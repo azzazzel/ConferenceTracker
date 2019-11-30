@@ -17,15 +17,12 @@
           :icon="icon"
           :lat-lng="city['lat-lng']"
           >
-          <l-popup>
-            <q-chip
+          <l-popup class="q-size-xl">
+            <ConferenceCard
               v-for="event in city.events"
               :key="event"
-              class="full-width"
-              >
-              <q-avatar icon="bookmark" color="primary" text-color="white" />
-              {{event}}
-            </q-chip>
+              :name="event"
+            ></ConferenceCard>
           </l-popup>
         </l-marker>
       </l-map>
@@ -36,6 +33,7 @@
 <script>
 
 import ConferenceFilter from 'components/ConferenceFilter'
+import ConferenceCard from 'components/ConferenceCard'
 import { mapGetters } from 'vuex'
 import { LMap, LTileLayer, LMarker, LPopup } from 'vue2-leaflet'
 import { latLng, icon } from 'leaflet'
@@ -44,6 +42,7 @@ export default {
   name: 'ConferencesMap',
   components: {
     ConferenceFilter,
+    ConferenceCard,
     LMap,
     LTileLayer,
     LMarker,
@@ -77,6 +76,20 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
+
   @import "~leaflet/dist/leaflet.css";
+
+  .leaflet-popup {
+      width: 450px;
+      .leaflet-popup-content {
+        width: 400px !important
+      }
+  }
+
+  .body--dark {
+    .leaflet-popup, .leaflet-popup-content-wrapper, .leaflet-popup-content {
+      background-color: $dark;
+    }
+  }
 </style>

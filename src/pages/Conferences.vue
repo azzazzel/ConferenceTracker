@@ -1,12 +1,12 @@
 <template>
   <q-page padding>
     <ConferenceFilter />
-    <div class="row justify-center q-gutter-none"
+    <div class="row justify-left q-gutter-none"
     >
       <div
         v-for="conference in conferences"
         v-bind:key="conference.name"
-        class="col-12 col-sm-6 col-md-4"
+        class="col-12 col-sm-6 col-lg-3"
         >
         <ConferenceCard
           :name="conference.name"

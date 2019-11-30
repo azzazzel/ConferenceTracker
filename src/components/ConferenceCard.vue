@@ -1,33 +1,41 @@
 <template>
-      <q-item>
-        <q-item-section top avatar class="q-ml-none">
-          <img :src="thumbnail()">
-        </q-item-section>
+  <q-card flat bordered class="transparent q-ma-sm">
+    <q-item class="q-pa-none">
+      <q-item-section side class="q-ma-none">
+        <img :src="thumbnail()">
+      </q-item-section>
 
-        <q-item-section>
-          <country-flag v-if="countryCode(location)" :country="countryCode(location)" size='normal'></country-flag>
-          <q-item-label class="text-h6">{{name}}</q-item-label>
-          <q-item-label class="vertical-middle">
-            {{location}}
-          </q-item-label>
-          <div>
-            <q-btn round flat
-              v-if="websiteUrl"
-              class="q-ma-xs"
-              icon="fas fa-home"
-              type="a"
-              target="_blank"
-              :href="websiteUrl"/>
-            <q-btn round flat
-              v-if="twitterUrl"
-              class="q-ma-xs"
-              icon="fab fa-twitter"
-              type="a"
-              target="_blank"
-              :href="twitterUrl"/>
-          </div>
-        </q-item-section>
-      </q-item>
+      <q-item-section>
+        <q-item-label class="text-h6">
+          {{name}}
+        </q-item-label>
+        <q-item-label caption class="vertical-middle">
+          <country-flag v-if="countryCode(location)" :country="countryCode(location)" size='small' class="vertical-middle"></country-flag>
+          {{location}}
+        </q-item-label>
+      </q-item-section>
+
+      <q-item-section side top class="q-ma-xs">
+        <div><q-btn flat
+          size="sm"
+          v-if="websiteUrl"
+          icon="fas fa-external-link-alt"
+          type="a"
+          target="_blank"
+          :href="websiteUrl"
+        /></div>
+        <div><q-btn flat
+          size="sm"
+          v-if="twitterUrl"
+          icon="fab fa-twitter"
+          type="a"
+          target="_blank"
+          :href="twitterUrl"
+        /></div>
+      </q-item-section>
+
+    </q-item>
+  </q-card>
 </template>
 
 <script>
@@ -41,10 +49,7 @@ export default {
     'country-flag': CountryFlag
   },
   props: {
-    name: String,
-    location: String,
-    websiteUrl: String,
-    twitterUrl: String
+    name: String
   },
   data () {
     return {
@@ -52,32 +57,42 @@ export default {
   },
   methods: {
     thumbnail: function () {
-      return this.websiteUrl === undefined || this.websiteUrl === ''
+      let cnf = this.conferenceByName(this.name)
+      return cnf.websiteUrl === undefined || cnf.websiteUrl === ''
         ? '/statics/community.jpg'
-        : 'http://free.pagepeeker.com/v2/thumbs.php?size=l&url=' + this.websiteUrl
+        : 'http://free.pagepeeker.com/v2/thumbs.php?size=l&url=' + cnf.websiteUrl
     }
   },
   computed: {
     ...mapGetters({
-      countryCode: 'conferencesStore/countryCode2'
-    })
+      countryCode: 'conferencesStore/countryCode2',
+      conferenceByName: 'conferencesStore/conferenceByName'
+    }),
+    location: function () {
+      return this.conferenceByName(this.name).location
+    },
+    websiteUrl: function () {
+      return this.conferenceByName(this.name).websiteUrl
+    },
+    twitterUrl: function () {
+      return this.conferenceByName(this.name).twitterUrl
+    }
   }
 }
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 
-  .q-item__section--avatar img {
-    width: 150px;
-    height: 150px;
+  .q-item__section img {
+    height: 70px;
     object-fit: cover;
-    border-radius: 50%;
+    border-radius: 2%;
     opacity:0.9;
-    filter: grayscale(50%)  saturate(70%);
-    -webkit-filter: grayscale(50%) saturate(70%);
+    filter: grayscale(90%) saturate(190%) brightness(150%) opacity(40%)  ;
+    -webkit-filter: grayscale(90%) saturate(190%) brightness(150%) opacity(40%);
   }
 
-  .q-item__section--avatar img:hover {
+  .q-item:hover img {
     filter: none;
     -webkit-filter: none;
   }
