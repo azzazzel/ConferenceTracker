@@ -129,7 +129,7 @@
             <q-avatar size=xs>
               <img
                 style="-webkit-filter: grayscale(100%); filter: grayscale(100%);"
-                src="/statics/icons/milen.jpg">
+                src="statics/icons/milen.jpg">
             </q-avatar>
             Milen Dyankov
           </q-chip>
@@ -141,7 +141,7 @@
             <q-avatar size=xs>
               <img
                 style="-webkit-filter: grayscale(100%); filter: grayscale(100%);"
-                src="/statics/icons/vue.png">
+                src="statics/icons/vue.png">
             </q-avatar>
             Vue.js
           </q-chip>
@@ -150,7 +150,7 @@
             <q-avatar size=xs>
               <img
                 style="-webkit-filter: grayscale(100%); filter: grayscale(100%);"
-                src="/statics/icons/quasar.png">
+                src="statics/icons/quasar.png">
             </q-avatar>
             Quasar
           </q-chip>

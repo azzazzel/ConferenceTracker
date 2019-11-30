@@ -50,7 +50,7 @@ export default {
   methods: {
     thumbnail: function () {
       return this.websiteUrl === undefined || this.websiteUrl === ''
-        ? '/statics/community.jpg'
+        ? 'statics/community.jpg'
         : 'http://free.pagepeeker.com/v2/thumbs.php?size=l&url=' + this.websiteUrl
     }
   },

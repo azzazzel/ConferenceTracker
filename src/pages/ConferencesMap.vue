@@ -58,7 +58,7 @@ export default {
         Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://www.openstreetmap.org/copyright">ODbL</a>.`,
       opacity: 0.7,
       icon: icon({
-        iconUrl: '/statics/map_pins/1.png',
+        iconUrl: 'statics/map_pins/1.png',
         iconSize: [32, 32]
       })
     }
