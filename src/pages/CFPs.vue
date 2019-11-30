@@ -16,6 +16,7 @@
           :websiteUrl="editionByName(cfp.conference).websiteUrl"
           :cfpUrl="cfp.cfpUrl"
           :date="eventDates(cfp)"
+          :days="eventDays(cfp)"
           ></CFPCard>
       </q-timeline-entry>
     </q-timeline>
@@ -46,7 +47,16 @@ export default {
     },
     eventDates: function (cfp) {
       let event = this.editionByName(cfp.conference)
-      return date.formatDate(event.start, 'DD MMM') + ' - ' + date.formatDate(event.end, 'DD MMM')
+      if (event.start === event.end) {
+        return date.formatDate(event.start, 'DD MMM')
+      } else {
+        return date.formatDate(event.start, 'DD MMM') + ' - ' + date.formatDate(event.end, 'DD MMM')
+      }
+    },
+    eventDays: function (cfp) {
+      let event = this.editionByName(cfp.conference)
+      let days = (Math.round((new Date(event.end) - new Date(event.start)) / 8.64e7) + 1)
+      return days + (days > 1 ? ' days' : ' day')
     },
     color: function (cfp) {
       if (cfp.color && cfp.color !== '') {

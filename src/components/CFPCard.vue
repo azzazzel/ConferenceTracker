@@ -1,17 +1,9 @@
 <template>
   <q-toolbar>
-    <country-flag class="vertical-middle" v-if="countryCode(location)" :country="countryCode(location)" size='normal'></country-flag>
-    &nbsp; {{location}}
-
-    <q-separator vertical inset class="q-mx-md"/>
-
-    <q-icon size="sm" name="far fa-calendar-check" />
-    &nbsp; {{date}}
-
-    <q-separator v-if="cfpUrl" vertical inset class="q-mx-md"/>
 
     <q-btn
-      flat
+      outline
+      size="sm"
       v-if="cfpUrl"
       type="a"
       :href="cfpUrl"
@@ -19,6 +11,17 @@
       icon-right="far fa-paper-plane"
       label="Submit proposals"
     />
+
+    <q-separator vertical inset class="q-mx-md"/>
+
+    <q-icon size="xs" name="far fa-calendar-check" />
+    &nbsp; {{date}} ({{days}})
+
+    <q-separator v-if="cfpUrl" vertical inset class="q-mx-md"/>
+
+    <country-flag class="vertical-middle" v-if="countryCode(location)" :country="countryCode(location)" size='small'></country-flag>
+    &nbsp; {{location}}
+
   </q-toolbar>
 </template>
 
@@ -37,7 +40,8 @@ export default {
     location: String,
     websiteUrl: String,
     cfpUrl: String,
-    date: String
+    date: String,
+    days: String
   },
   data () {
     return {
