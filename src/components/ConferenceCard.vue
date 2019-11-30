@@ -59,7 +59,7 @@ export default {
     thumbnail: function () {
       let cnf = this.conferenceByName(this.name)
       return cnf.websiteUrl === undefined || cnf.websiteUrl === ''
-        ? '/statics/community.jpg'
+        ? 'statics/community.jpg'
         : 'http://free.pagepeeker.com/v2/thumbs.php?size=l&url=' + cnf.websiteUrl
     }
   },
