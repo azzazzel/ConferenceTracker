@@ -1,16 +1,16 @@
 <template>
-  <q-page paddings class="q-pa-xl">
-    <div class="row q-gutter-none">
+  <q-page paddings class="q-pa-sm-none q-pa-lg-xl">
+    <div class="stats row q-gutter-none">
 
       <!-- COLUMN 1 -->
-      <div class="col-12 col-md-6 col-lg-4 q-pa-lg">
+      <div class="col-12 col-md-6 col-lg-4 q-pa-lg-lg">
         <q-item class="stat-box">
           <q-item-section class="stat-text">
-            <q-icon size="xl" name="far fa-calendar-alt"/>
-            <q-item-label class="text-h4">Upcoming</q-item-label>
+            <q-icon class="section-icon" name="far fa-calendar-alt"/>
+            <q-item-label class="section-header">Upcoming</q-item-label>
           </q-item-section>
           <q-item-section side top class="stat-count">
-            <q-item-label class="text-h1">{{upcomingEditionsCount}}</q-item-label>
+            <q-item-label class="section-numer">{{upcomingEditionsCount}}</q-item-label>
           </q-item-section>
           <q-item-section side >
             <q-chip square  class="full-width q-my-sm">
@@ -66,11 +66,11 @@
 
         <q-item class="stat-box">
           <q-item-section class="stat-text">
-            <q-icon size="xl" name="how_to_vote"/>
-            <q-item-label class="text-h4">Open CFPs</q-item-label>
+            <q-icon class="section-icon" name="how_to_vote"/>
+            <q-item-label class="section-header">Open CFPs</q-item-label>
           </q-item-section>
           <q-item-section side top class="stat-count">
-            <q-item-label class="text-h1">{{openCFPsCount}}</q-item-label>
+            <q-item-label class="section-numer">{{openCFPsCount}}</q-item-label>
           </q-item-section>
         </q-item>
         <div>
@@ -113,14 +113,14 @@
       </div>
 
       <!-- COLUMN 2 -->
-      <div class="col-12 col-md-6 col-lg-4 q-pa-lg">
+      <div class="col-12 col-md-6 col-lg-4 q-pa-lg-lg">
         <q-item class="stat-box">
           <q-item-section class="stat-text">
-            <q-icon size="xl" name="far fa-flag" />
-            <q-item-label class="text-h4">Countries</q-item-label>
+            <q-icon class="section-icon" name="far fa-flag" />
+            <q-item-label class="section-header">Countries</q-item-label>
           </q-item-section>
           <q-item-section side top class="stat-count">
-            <q-item-label class="text-h1">{{countriesCount}}</q-item-label>
+            <q-item-label class="section-numer">{{countriesCount}}</q-item-label>
           </q-item-section>
         </q-item>
         <div>
@@ -166,11 +166,11 @@
         <div>
           <q-item class="stat-box">
             <q-item-section class="stat-text">
-              <q-icon size="xl" name="fas fa-map-marker-alt" />
-              <q-item-label class="text-h4">Cities</q-item-label>
+              <q-icon class="section-icon" name="fas fa-map-marker-alt" />
+              <q-item-label class="section-header">Cities</q-item-label>
             </q-item-section>
             <q-item-section side top class="stat-count">
-              <q-item-label class="text-h1">{{citiesCount}}</q-item-label>
+              <q-item-label class="section-numer">{{citiesCount}}</q-item-label>
             </q-item-section>
           </q-item>
 
@@ -215,14 +215,14 @@
       </div>
 
       <!-- COLUMN 3 -->
-      <div class="col-12 col-md-6 col-lg-4 q-pa-lg">
+      <div class="col-12 col-md-6 col-lg-4 q-pa-lg-lg">
         <q-item class="stat-box">
           <q-item-section class="stat-text">
-            <q-icon size="xl" name="group_work" class="text-left"/>
-            <q-item-label class="text-left text-h4">Conference Families</q-item-label>
+            <q-icon class="section-icon" name="group_work" />
+            <q-item-label class="text-left section-header">Conference Families</q-item-label>
           </q-item-section>
           <q-item-section side class="stat-count">
-            <q-item-label class="text-h1">{{conferencesCount}}</q-item-label>
+            <q-item-label class="section-numer">{{conferencesCount}}</q-item-label>
           </q-item-section>
         </q-item>
         <div>
@@ -308,5 +308,41 @@ export default {
   }
 
 }
-
 </script>
+
+<style lang="scss" >
+
+  .section-header {
+    @media screen and (min-width: $breakpoint-md) {
+      font-size: 2.125rem;
+    }
+    @media screen and (min-width: $breakpoint-sm) {
+      font-size: 1.9rem;
+    }
+    font-size: 1.6rem;
+  }
+
+  .section-icon {
+    @media screen and (min-width: $breakpoint-md) {
+      font-size: 46px;
+    }
+    @media screen and (min-width: $breakpoint-sm) {
+      font-size: 36px;
+    }
+    font-size: 36px;
+  }
+
+  .section-numer {
+    @media screen and (min-width: $breakpoint-md) {
+      font-size: 6rem;
+      font-weight: 300;
+    }
+    @media screen and (min-width: $breakpoint-sm) {
+      font-size: 5rem;
+      font-weight: 300;
+    }
+    font-size: 4.5rem;
+    font-weight: 300;
+  }
+
+</style>

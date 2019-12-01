@@ -41,6 +41,8 @@ module.exports = function (ctx) {
       //            (not treeshaking Quasar; biggest bundle size; convenient)
       all: 'auto',
 
+      cssAddon: true,
+
       components: [],
       directives: [],
 
@@ -80,6 +82,7 @@ module.exports = function (ctx) {
     devServer: {
       // https: true,
       // port: 8080,
+      host: '0.0.0.0',
       open: true // opens browser window automatically
     },
 
