@@ -167,7 +167,7 @@ export function openCFPs (state) {
 }
 
 export function openCFPsCount (state) {
-  if (!ready(state)) return {}
+  if (!ready(state)) return 0
   return Object.values(state.cfps)
     .filter(cfp => new Date(cfp.end) > new Date())
     .length
