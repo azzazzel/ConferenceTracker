@@ -22,99 +22,135 @@
       :content-class='$q.screen.lt.md ? "bg-black" : "bg-transparent"'
       >
       <div class="full-height page-pannel">
-      <q-list>
+        <q-list>
 
-        <q-item clickable v-ripple
-          active-class="active-page"
-          to="/#"
-        >
-          <q-item-section avatar>
-            <q-icon name="fas fa-chart-bar" />
-          </q-item-section>
+          <q-item clickable v-ripple
+            active-class="active-page"
+            to="/#"
+          >
+            <q-item-section avatar>
+              <q-icon name="fas fa-chart-bar" />
+            </q-item-section>
 
-          <q-item-section>Dashboard</q-item-section>
-        </q-item>
+            <q-item-section>Dashboard</q-item-section>
+          </q-item>
 
-        <q-separator inset class="q-mx-md"/>
+          <q-separator inset class="q-mx-md"/>
 
-        <q-item clickable v-ripple
-          active-class="active-page"
-          :to="{name: 'conferencesList'}"
-        >
-          <q-item-section avatar>
-            <q-icon name="fas fa-microphone-alt" />
-          </q-item-section>
+          <q-item clickable v-ripple
+            active-class="active-page"
+            :to="{name: 'conferencesList'}"
+          >
+            <q-item-section avatar>
+              <q-icon name="fas fa-microphone-alt" />
+            </q-item-section>
 
-          <q-item-section>Conferences</q-item-section>
-        </q-item>
+            <q-item-section>Conferences</q-item-section>
+          </q-item>
 
-        <q-item clickable v-ripple
-          active-class="active-page"
-          :to="{name: 'conferencesMap'}"
-        >
-          <q-item-section avatar>
-            <q-icon name="fas fa-map-marked-alt" />
-          </q-item-section>
+          <q-item clickable v-ripple
+            active-class="active-page"
+            :to="{name: 'conferencesMap'}"
+          >
+            <q-item-section avatar>
+              <q-icon name="fas fa-map-marked-alt" />
+            </q-item-section>
 
-          <q-item-section>Map</q-item-section>
-        </q-item>
+            <q-item-section>Map</q-item-section>
+          </q-item>
 
-        <q-item clickable v-ripple
-          active-class="active-page"
-          :to="{name: 'calendar'}"
-        >
-          <q-item-section avatar>
-            <q-icon name="far fa-calendar-alt" />
-          </q-item-section>
+          <q-item clickable v-ripple
+            active-class="active-page"
+            :to="{name: 'calendar'}"
+          >
+            <q-item-section avatar>
+              <q-icon name="far fa-calendar-alt" />
+            </q-item-section>
 
-          <q-item-section>Calendar</q-item-section>
-        </q-item>
+            <q-item-section>Calendar</q-item-section>
+          </q-item>
 
-        <q-item clickable v-ripple
-          active-class="active-page"
-          :to="{name: 'cfp'}"
-        >
-          <q-item-section avatar>
-            <q-icon name="how_to_vote" />
-          </q-item-section>
+          <q-item clickable v-ripple
+            active-class="active-page"
+            :to="{name: 'cfp'}"
+          >
+            <q-item-section avatar>
+              <q-icon name="how_to_vote" />
+            </q-item-section>
 
-          <q-item-section>Call For Papers</q-item-section>
-        </q-item>
+            <q-item-section>Call For Papers</q-item-section>
+          </q-item>
 
-        <q-separator inset class="q-mx-md"/>
+          <q-separator inset class="q-mx-md"/>
 
-        <q-item clickable v-ripple
-          active-class="active-page"
-          target="_blank"
-          tag="a"
-          :class="darkMode ? 'text-accent' : 'text-warning'"
-          href='https://docs.google.com/spreadsheets/d/1UEXmLwp8qEvvwBjiNQGSAB07QFSPVgD-10ieljAnevg/edit#gid=0'
-        >
-          <q-item-section avatar>
-            <q-icon name="fas fa-database" />
-          </q-item-section>
+          <q-item clickable v-ripple
+            active-class="active-page"
+            target="_blank"
+            tag="a"
+            :class="darkMode ? 'text-accent' : 'text-warning'"
+            href='https://docs.google.com/spreadsheets/d/1UEXmLwp8qEvvwBjiNQGSAB07QFSPVgD-10ieljAnevg/edit#gid=0'
+          >
+            <q-item-section avatar>
+              <q-icon name="fas fa-database" />
+            </q-item-section>
 
-          <q-item-section>View raw data <small>(Google spreadsheet)</small></q-item-section>
-        </q-item>
+            <q-item-section>View raw data <small>(Google spreadsheet)</small></q-item-section>
+          </q-item>
 
-        <q-item clickable v-ripple
-          active-class="active-page"
-          target="_blank"
-          tag="a"
-          :class="darkMode ? 'text-accent' : 'text-warning'"
-          href='https://forms.gle/vFcWJKWtqD7NrxmZ8'
-        >
-          <q-item-section avatar>
-            <q-icon name="far fa-edit">
-            </q-icon>
-          </q-item-section>
+          <q-item clickable v-ripple
+            active-class="active-page"
+            target="_blank"
+            tag="a"
+            :class="darkMode ? 'text-accent' : 'text-warning'"
+            href='https://forms.gle/vFcWJKWtqD7NrxmZ8'
+          >
+            <q-item-section avatar>
+              <q-icon name="far fa-edit">
+              </q-icon>
+            </q-item-section>
 
-          <q-item-section>
-            Suggest a new event <small>(Google Form)</small>
-          </q-item-section>
-        </q-item>
+            <q-item-section>
+              Suggest a new event <small>(Google Form)</small>
+            </q-item-section>
+          </q-item>
 
-      </q-list>
+          <div class="small-only absolute-bottom q-ma-sm">
+            <q-separator inset class="q-mx-md"/>
+
+            <div>Brought to you by
+              <q-chip dense square clickable @click="goto('http://milendyankov.com')">
+                <q-avatar size=xs>
+                  <img
+                    style="-webkit-filter: grayscale(100%); filter: grayscale(100%);"
+                    src="statics/icons/milen.jpg">
+                </q-avatar>
+                Milen Dyankov
+              </q-chip>
+            </div>
+
+            <div>
+              Made with
+              <q-chip dense square clickable @click="goto('https://vuejs.org/')">
+                <q-avatar size=xs>
+                  <img
+                    style="-webkit-filter: grayscale(100%); filter: grayscale(100%);"
+                    src="statics/icons/vue.png">
+                </q-avatar>
+                Vue.js
+              </q-chip>
+              and
+              <q-chip dense square clickable @click="goto('https://quasar.dev/')">
+                <q-avatar size=xs>
+                  <img
+                    style="-webkit-filter: grayscale(100%); filter: grayscale(100%);"
+                    src="statics/icons/quasar.png">
+                </q-avatar>
+                Quasar
+              </q-chip>
+            </div>
+          </div>
+
+        </q-list>
       </div>
     </q-drawer>
 
@@ -122,9 +158,9 @@
       <router-view />
     </q-page-container>
 
-    <q-footer elevated class="main-footer">
+    <q-footer elevated reveal class="main-footer">
       <q-toolbar class="bg-transparent text-weight-light text-caption">
-        <div>Brought to you by
+        <div class="big-only">Brought to you by
           <q-chip dense square clickable @click="goto('http://milendyankov.com')">
             <q-avatar size=xs>
               <img
@@ -134,8 +170,8 @@
             Milen Dyankov
           </q-chip>
         </div>
-        <q-separator vertical inset class="q-mx-md"/>
-        <div>
+        <q-separator vertical inset class="q-mx-md big-only"/>
+        <div class="big-only">
           Made with
           <q-chip dense square clickable @click="goto('https://vuejs.org/')">
             <q-avatar size=xs>
@@ -198,3 +234,21 @@ export default {
 
 }
 </script>
+
+<style lang="scss">
+
+  .small-only {
+    @media screen and (max-width: $breakpoint-sm) {
+      display: block;
+    }
+    display: none;
+  }
+
+  .big-only {
+    @media screen and (min-width: $breakpoint-sm) {
+      display: block;
+    }
+    display: none;
+  }
+
+</style>
