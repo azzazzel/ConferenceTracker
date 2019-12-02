@@ -219,7 +219,7 @@ export function calendarEvents (state) {
       case timelineStatus.UPCOMMING: color = 'info'; break
     }
     let event = {
-      id: edition.id,
+      id: 'EVENT_' + edition.id,
       summary: edition.conference,
       color: color,
       location: edition.location,
@@ -240,7 +240,7 @@ export function calendarEvents (state) {
       color = 'grey'
     }
     let event = {
-      id: cfp.id,
+      id: 'CFP_' + cfp.id,
       summary: 'CFP deadline - ' + state.editions[cfp.conference].conference,
       color: color,
       description: '',
