@@ -218,10 +218,10 @@
       <div class="col-12 col-md-6 col-lg-4 q-pa-lg-lg">
         <q-item class="stat-box">
           <q-item-section class="stat-text">
-            <q-icon class="section-icon" name="group_work" />
-            <q-item-label class="text-left section-header">Conference Families</q-item-label>
+            <q-icon class="section-icon" name="fas fa-microphone-alt" />
+            <q-item-label class="text-left section-header">Conferences</q-item-label>
           </q-item-section>
-          <q-item-section side class="stat-count">
+          <q-item-section side top class="stat-count">
             <q-item-label class="section-numer">{{conferencesCount}}</q-item-label>
           </q-item-section>
         </q-item>

@@ -49,7 +49,7 @@ export function filteredConferences (state) {
 }
 
 export function conferencesCount (state) {
-  return state.conferences.length
+  return Object.values(state.conferences).length
 }
 
 export function allCities (state) {
