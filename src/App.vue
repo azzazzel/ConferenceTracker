@@ -12,6 +12,7 @@ import { Loading } from 'quasar'
 export default {
   name: 'App',
   created () {
+    Loading.show()
     let router = this.$router
     Vue.use(VueAnalytics, {
       id: 'UA-6858591-3',
@@ -25,9 +26,6 @@ export default {
     this.$store.dispatch('conferencesStore/loadCities')
     this.$store.dispatch('conferencesStore/loadEditions')
     this.$store.dispatch('conferencesStore/loadCFPs')
-    Loading.show({
-      delay: 400
-    })
   }
 }
 </script>
