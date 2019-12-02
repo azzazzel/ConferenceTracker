@@ -1,3 +1,5 @@
+import { Loading } from 'quasar'
+
 const timelineStatus = {
   PAST: 'past',
   CURRENT: 'current',
@@ -23,13 +25,20 @@ function filterByTimelineStatus (state, status) {
 }
 
 export function ready (state) {
-  return state.conferences && Object.values(state.conferences).length !== 0 &&
+  let ready = state.conferences && Object.values(state.conferences).length !== 0 &&
     state.editions && Object.values(state.editions).length !== 0 &&
     state.cities && Object.values(state.cities).length !== 0 &&
     state.cfps && Object.values(state.cfps).length !== 0
+
+  if (ready) {
+    Loading.hide()
+  }
+
+  return ready
 }
 
 export function filteredConferences (state) {
+  if (!ready(state)) return {}
   let result = Object.values(state.conferences)
   if (state.nameFilter) {
     let regExp = new RegExp(state.nameFilter, 'i')

@@ -7,6 +7,7 @@
 <script>
 import Vue from 'vue'
 import VueAnalytics from 'vue-analytics'
+import { Loading } from 'quasar'
 
 export default {
   name: 'App',
@@ -24,6 +25,9 @@ export default {
     this.$store.dispatch('conferencesStore/loadCities')
     this.$store.dispatch('conferencesStore/loadEditions')
     this.$store.dispatch('conferencesStore/loadCFPs')
+    Loading.show({
+      delay: 400
+    })
   }
 }
 </script>
