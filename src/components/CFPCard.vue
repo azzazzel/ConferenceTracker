@@ -1,28 +1,26 @@
 <template>
-  <q-toolbar>
-
-    <q-btn
-      outline
-      size="sm"
-      v-if="cfpUrl"
-      type="a"
-      :href="cfpUrl"
-      target="_blank"
-      icon-right="far fa-paper-plane"
-      label="Submit proposals"
-    />
-
-    <q-separator vertical inset class="q-mx-md"/>
-
-    <q-icon size="xs" name="far fa-calendar-check" />
-    &nbsp; {{date}} ({{days}})
-
-    <q-separator v-if="cfpUrl" vertical inset class="q-mx-md"/>
-
-    <country-flag class="vertical-middle" v-if="countryCode(location)" :country="countryCode(location)" size='small'></country-flag>
-    &nbsp; {{location}}
-
-  </q-toolbar>
+    <div>
+      <div class="col-12">
+        <q-icon size="xs" name="far fa-calendar-check" />
+        &nbsp; {{date}} ({{days}})
+      </div>
+      <div class="col-12">
+        <country-flag class="vertical-middle" v-if="countryCode(location)" :country="countryCode(location)" size='small'></country-flag>
+        &nbsp; {{location}}
+      </div>
+      <div class="col-12">
+        <q-btn
+          outline
+          size="sm"
+          v-if="cfpUrl"
+          type="a"
+          :href="cfpUrl"
+          target="_blank"
+          icon-right="far fa-paper-plane"
+          label="Submit proposals"
+        />
+      </div>
+    </div>
 </template>
 
 <script>
