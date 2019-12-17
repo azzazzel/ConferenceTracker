@@ -114,6 +114,23 @@
             </q-item-section>
           </q-item>
 
+          <q-item clickable v-ripple
+            active-class="active-page"
+            target="_blank"
+            tag="a"
+            :class="darkMode ? 'text-accent' : 'text-warning'"
+            href='https://calendar.google.com/calendar/embed?src=sa25ra2vrgh19v1v8nife72b1k%40group.calendar.google.com'
+          >
+            <q-item-section avatar>
+              <q-icon name="far fa-calendar">
+              </q-icon>
+            </q-item-section>
+
+            <q-item-section>
+              Embedabble calendar <small>(Google Calendar)</small>
+            </q-item-section>
+          </q-item>
+
           <div class="small-only absolute-bottom q-ma-sm">
             <q-separator inset class="q-mx-md"/>
 
