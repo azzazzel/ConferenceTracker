@@ -17,53 +17,57 @@
           :cfpUrl="cfp.cfpUrl"
           :date="eventDates(cfp)"
           :days="eventDays(cfp)"
-          ></CFPCard>
+        ></CFPCard>
       </q-timeline-entry>
     </q-timeline>
   </q-page>
 </template>
 
 <script>
-
-import { mapGetters } from 'vuex'
-import { date } from 'quasar'
-import CFPCard from 'components/CFPCard'
+import { mapGetters } from "vuex";
+import { date } from "quasar";
+import CFPCard from "components/CFPCard.vue";
 
 export default {
-  name: 'CFPs',
+  name: "CFPs",
   components: {
-    CFPCard
+    CFPCard,
   },
   computed: {
     ...mapGetters({
-      cfps: 'conferencesStore/upcomingCFPs',
-      editionByName: 'conferencesStore/editionByName'
-    })
+      cfps: "conferencesStore/upcomingCFPs",
+      editionByName: "conferencesStore/editionByName",
+    }),
   },
 
   methods: {
     printDate: function (cfp) {
-      return date.formatDate(cfp.end, 'DD MMMM YYYY')
+      return date.formatDate(cfp.end, "DD MMMM YYYY");
     },
     eventDates: function (cfp) {
-      let event = this.editionByName(cfp.conference)
+      let event = this.editionByName(cfp.conference);
       if (event.start === event.end) {
-        return date.formatDate(event.start, 'DD MMM')
+        return date.formatDate(event.start, "DD MMM");
       } else {
-        return date.formatDate(event.start, 'DD MMM') + ' - ' + date.formatDate(event.end, 'DD MMM')
+        return (
+          date.formatDate(event.start, "DD MMM") +
+          " - " +
+          date.formatDate(event.end, "DD MMM")
+        );
       }
     },
     eventDays: function (cfp) {
-      let event = this.editionByName(cfp.conference)
-      let days = (Math.round((new Date(event.end) - new Date(event.start)) / 8.64e7) + 1)
-      return days + (days > 1 ? ' days' : ' day')
+      let event = this.editionByName(cfp.conference);
+      let days =
+        Math.round((new Date(event.end) - new Date(event.start)) / 8.64e7) + 1;
+      return days + (days > 1 ? " days" : " day");
     },
     color: function (cfp) {
-      if (cfp.color && cfp.color !== '') {
-        return cfp.color
+      if (cfp.color && cfp.color !== "") {
+        return cfp.color;
       }
-      return this.$q.dark.isActive ? 'secondary' : 'primary'
-    }
-  }
-}
+      return this.$q.dark.isActive ? "secondary" : "primary";
+    },
+  },
+};
 </script>

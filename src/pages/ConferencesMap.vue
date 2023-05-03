@@ -2,21 +2,18 @@
   <q-page padding>
     <ConferenceFilter />
     <div class="full-page-pannel">
-      <l-map
-        style="height: 95%; width: 100%"
-        :zoom="zoom"
-        :center="center"
-        >
+      <l-map style="height: 95%; width: 100%" :zoom="zoom" :center="center">
         <l-tile-layer
           :url="url"
           :attribution="attribution"
-          :opacity="opacity"></l-tile-layer>
+          :opacity="opacity"
+        ></l-tile-layer>
         <l-marker
           v-for="city in cityConferences"
           :key="city.location"
           :icon="icon"
           :lat-lng="city['lat-lng']"
-          >
+        >
           <l-popup class="q-size-xl">
             <ConferenceCard
               v-for="event in city.events"
@@ -31,22 +28,21 @@
 </template>
 
 <script>
-
-import ConferenceFilter from 'components/ConferenceFilter'
-import ConferenceCard from 'components/ConferenceCard'
-import { mapGetters } from 'vuex'
-import { LMap, LTileLayer, LMarker, LPopup } from 'vue2-leaflet'
-import { latLng, icon } from 'leaflet'
+import ConferenceFilter from "components/ConferenceFilter.vue";
+import ConferenceCard from "components/ConferenceCard.vue";
+import { mapGetters } from "vuex";
+import { LMap, LTileLayer, LMarker, LPopup } from "@vue-leaflet/vue-leaflet";
+import { latLng, icon } from "leaflet";
 
 export default {
-  name: 'ConferencesMap',
+  name: "ConferencesMap",
   components: {
     ConferenceFilter,
     ConferenceCard,
     LMap,
     LTileLayer,
     LMarker,
-    LPopup
+    LPopup,
   },
   data: function () {
     return {
@@ -58,38 +54,39 @@ export default {
         Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://www.openstreetmap.org/copyright">ODbL</a>.`,
       opacity: 0.7,
       icon: icon({
-        iconUrl: 'statics/map_pins/1.png',
-        iconSize: [32, 32]
-      })
-    }
+        iconUrl: "/map_pins/1.png",
+        iconSize: [32, 32],
+      }),
+    };
   },
   computed: {
     ...mapGetters({
-      cityConferences: 'conferencesStore/cityConferences'
+      cityConferences: "conferencesStore/cityConferences",
     }),
     url: function () {
       return this.$q.dark.isActive
-        ? 'http://tile.stamen.com/toner/{z}/{x}/{y}.png'
-        : 'https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}.png'
-    }
-  }
-}
+        ? "http://tile.stamen.com/toner/{z}/{x}/{y}.png"
+        : "https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}.png";
+    },
+  },
+};
 </script>
 
 <style lang="scss">
+@import "leaflet/dist/leaflet.css";
 
-  @import "~leaflet/dist/leaflet.css";
-
-  .leaflet-popup {
-      width: 450px;
-      .leaflet-popup-content {
-        width: 400px !important
-      }
+.leaflet-popup {
+  width: 450px;
+  .leaflet-popup-content {
+    width: 400px !important;
   }
+}
 
-  .body--dark {
-    .leaflet-popup, .leaflet-popup-content-wrapper, .leaflet-popup-content {
-      background-color: $dark;
-    }
+.body--dark {
+  .leaflet-popup,
+  .leaflet-popup-content-wrapper,
+  .leaflet-popup-content {
+    background-color: $dark;
   }
+}
 </style>

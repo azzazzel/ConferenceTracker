@@ -6,9 +6,9 @@ var citiesRegion = `Cities!A2:H`
 var editionsRegion = `Conference editions!A2:F`
 var cfpsRegion = `CFP!A2:D`
 
-import { time } from 'vue-analytics'
+// import { time } from 'vue-analytics'
 
-export function loadConferences (context) {
+export function loadConferences(context) {
   let url = baseUrl + spreadsheetId + '/values/' + conferencesRegion + '?key=' + key + '&majorDimension=ROWS'
 
   fetch(url)
@@ -29,16 +29,16 @@ export function loadConferences (context) {
         {}
       )
       context.commit('updateConferences', conferences)
-      time({
-        timingCategory: 'Ajax calls',
-        timingVar: 'Google spreadsheets',
-        timingValue: performance.now() - performance.getEntriesByName('loadDataStart')[0].startTime,
-        timingLabel: 'conferences'
-      })
+      // time({
+      //   timingCategory: 'Ajax calls',
+      //   timingVar: 'Google spreadsheets',
+      //   timingValue: performance.now() - performance.getEntriesByName('loadDataStart')[0].startTime,
+      //   timingLabel: 'conferences'
+      // })
     })
 }
 
-export function loadCities (context) {
+export function loadCities(context) {
   let url = baseUrl + spreadsheetId + '/values/' + citiesRegion + '?key=' + key + '&majorDimension=ROWS'
   fetch(url)
     .then(function (response) {
@@ -59,16 +59,16 @@ export function loadCities (context) {
         {}
       )
       context.commit('updateCities', cities)
-      time({
-        timingCategory: 'Ajax calls',
-        timingVar: 'Google spreadsheets',
-        timingValue: performance.now() - performance.getEntriesByName('loadDataStart')[0].startTime,
-        timingLabel: 'cities'
-      })
+      // time({
+      //   timingCategory: 'Ajax calls',
+      //   timingVar: 'Google spreadsheets',
+      //   timingValue: performance.now() - performance.getEntriesByName('loadDataStart')[0].startTime,
+      //   timingLabel: 'cities'
+      // })
     })
 }
 
-export function loadEditions (context) {
+export function loadEditions(context) {
   let url = baseUrl + spreadsheetId + '/values/' + editionsRegion + '?key=' + key + '&majorDimension=ROWS'
   let id = 1
   fetch(url)
@@ -90,16 +90,16 @@ export function loadEditions (context) {
         {}
       )
       context.commit('updateEditions', editions)
-      time({
-        timingCategory: 'Ajax calls',
-        timingVar: 'Google spreadsheets',
-        timingValue: performance.now() - performance.getEntriesByName('loadDataStart')[0].startTime,
-        timingLabel: 'editions'
-      })
+      // time({
+      //   timingCategory: 'Ajax calls',
+      //   timingVar: 'Google spreadsheets',
+      //   timingValue: performance.now() - performance.getEntriesByName('loadDataStart')[0].startTime,
+      //   timingLabel: 'editions'
+      // })
     })
 }
 
-export function loadCFPs (context) {
+export function loadCFPs(context) {
   let url = baseUrl + spreadsheetId + '/values/' + cfpsRegion + '?key=' + key + '&majorDimension=ROWS'
   let id = 1
   fetch(url)
@@ -116,11 +116,11 @@ export function loadCFPs (context) {
         }
       })
       context.commit('updateCFPs', cfps)
-      time({
-        timingCategory: 'Ajax calls',
-        timingVar: 'Google spreadsheets',
-        timingValue: performance.now() - performance.getEntriesByName('loadDataStart')[0].startTime,
-        timingLabel: 'cfps'
-      })
+      // time({
+      //   timingCategory: 'Ajax calls',
+      //   timingVar: 'Google spreadsheets',
+      //   timingValue: performance.now() - performance.getEntriesByName('loadDataStart')[0].startTime,
+      //   timingLabel: 'cfps'
+      // })
     })
 }
