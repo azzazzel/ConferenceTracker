@@ -153,7 +153,7 @@
                       -webkit-filter: grayscale(100%);
                       filter: grayscale(100%);
                     "
-                    src="/icons/milen.jpg"
+                    src="/ConferenceTracker/icons/milen.jpg"
                   />
                 </q-avatar>
                 Milen Dyankov
@@ -174,7 +174,7 @@
                       -webkit-filter: grayscale(100%);
                       filter: grayscale(100%);
                     "
-                    src="/icons/vue.png"
+                    src="/ConferenceTracker/icons/vue.png"
                   />
                 </q-avatar>
                 Vue.js
@@ -192,7 +192,7 @@
                       -webkit-filter: grayscale(100%);
                       filter: grayscale(100%);
                     "
-                    src="/icons/quasar.png"
+                    src="/ConferenceTracker/icons/quasar.png"
                   />
                 </q-avatar>
                 Quasar
@@ -220,7 +220,7 @@
             <q-avatar size="xs">
               <img
                 style="-webkit-filter: grayscale(100%); filter: grayscale(100%)"
-                src="/icons/milen.jpg"
+                src="/ConferenceTracker/icons/milen.jpg"
               />
             </q-avatar>
             Milen Dyankov
@@ -233,7 +233,7 @@
             <q-avatar size="xs">
               <img
                 style="-webkit-filter: grayscale(100%); filter: grayscale(100%)"
-                src="/icons/vue.png"
+                src="/ConferenceTracker/icons/vue.png"
               />
             </q-avatar>
             Vue.js
@@ -243,7 +243,7 @@
             <q-avatar size="xs">
               <img
                 style="-webkit-filter: grayscale(100%); filter: grayscale(100%)"
-                src="/icons/quasar.png"
+                src="/ConferenceTracker/icons/quasar.png"
               />
             </q-avatar>
             Quasar
