@@ -1,0 +1,32 @@
+name: Build and deploy
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  build-and-deploy:
+    name: Build and deploy to GCP
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2.3.4
+    - name: Install Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: "16"
+    - name: Install tools
+      run: |
+        yarn global add @quasar/cli
+        yarn
+        quasar upgrade
+    - name: Build
+      run: |
+        quasar build
+    - name: Create `.nojekyll`
+      run: touch dist/spa/.nojekyll
+    - name: Publish to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: dist/spa
