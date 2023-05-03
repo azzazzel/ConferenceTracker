@@ -49,12 +49,11 @@ export default {
       zoom: 3,
       center: latLng(30, 0),
       attribution: `
-        Light mode map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>.
-        Dark mode map tiles by <a href="https://foundation.wikimedia.org/w/index.php?title=Maps_Terms_of_Use#Where_does_the_map_data_come_from.3F">Wikimedia</a>, under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.
+        Tiles Courtesy of <a href="http://jawg.io" title="Jawg Maps" target="_blank">&copy;<b>Jawg</b>Maps</a>
         Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://www.openstreetmap.org/copyright">ODbL</a>.`,
       opacity: 0.7,
       icon: icon({
-        iconUrl: "/map_pins/1.png",
+        iconUrl: "/ConferenceTracker/map_pins/1.png",
         iconSize: [32, 32],
       }),
     };
@@ -65,8 +64,8 @@ export default {
     }),
     url: function () {
       return this.$q.dark.isActive
-        ? "http://tile.stamen.com/toner/{z}/{x}/{y}.png"
-        : "https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}.png";
+        ? "https://{s}.tile.jawg.io/jawg-dark/{z}/{x}/{y}{r}.png?access-token=QFWXy1ru6hc6VINtnsZf1vwPqXmWiBBXi178hGTUO4xIlCAcAe7kL5a6v2m8dwwN"
+        : "https://{s}.tile.jawg.io/jawg-sunny/{z}/{x}/{y}{r}.png?access-token=QFWXy1ru6hc6VINtnsZf1vwPqXmWiBBXi178hGTUO4xIlCAcAe7kL5a6v2m8dwwN";
     },
   },
 };
